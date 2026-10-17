@@ -1,0 +1,24 @@
+{
+  "name": "switchyard",
+  "displayName": "Switchyard — Agent Control",
+  "description": "Monitor Cline CLI and OpenCode agents across git worktrees, and approve plan/act checkpoints from VS Code.",
+  "version": "0.1.0",
+  "publisher": "switchyard",
+  "engines": { "vscode": "^1.85.0" },
+  "categories": ["Other"],
+  "main": "./extension.js",
+  "activationEvents": ["onStartupFinished"],
+  "contributes": {
+    "commands": [
+      { "command": "switchyard.open", "title": "Switchyard: Open Dashboard" },
+      { "command": "switchyard.review", "title": "Switchyard: Review Pending Checkpoints" }
+    ],
+    "configuration": {
+      "title": "Switchyard",
+      "properties": {
+        "switchyard.url": { "type": "string", "default": "http://localhost:5000", "description": "Base URL of the Switchyard server" },
+        "switchyard.pollSeconds": { "type": "number", "default": 5, "description": "Status bar refresh interval" }
+      }
+    }
+  }
+}
